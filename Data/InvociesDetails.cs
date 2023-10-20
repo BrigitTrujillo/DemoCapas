@@ -4,10 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Collections.Generic;
+
 namespace Data
 {
     public class InvociesDetails
     {
-        List<InvociesDetails>GetInvociesDetails()
+        public List<InvociesDetails> GetInvociesDetails()
+        {
+            
+            return new List<InvociesDetails>(); 
+        }
     }
 }

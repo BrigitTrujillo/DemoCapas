@@ -8,15 +8,7 @@ namespace Buiness
 {
     public class BProduct
     {
-        public List<BProduct> GetByName(string name)
-        {
-
-        }
-
-        public List<BProduct> GetByPrice(string name)
-        {
-
-        }
+      
 
 
     }
