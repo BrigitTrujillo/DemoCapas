@@ -22,6 +22,7 @@
         <Button Content="Guardar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="40" Margin="20,180,0,0" Click="Button_Click"/>
         <Button Content="Mostrar Clientes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40" Margin="150,180,0,0" Click="ListarCustomer_Click"/>
         
+        
 
     </Grid>
 </Window>

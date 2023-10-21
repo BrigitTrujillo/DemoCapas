@@ -16,13 +16,16 @@ namespace Buiness
             dCustomer = new DCustomer();
         }
 
-        public void InsertarCustomer(Entity.Customer customer) // Asegúrate de usar Entity.Customer
+        public void InsertarCustomer(Entity.Customer customer)
         {
-            dCustomer.InsertarCustomer(customer); // Pasar el objeto de tipo Entity.Customer
+            dCustomer.InsertarCustomer(customer); 
         }
 
-        public List<Customer>ListarCustomer()
+        public List<Customer>ListarCustomer(string name)
         {
+            var customers = dCustomer.ListarCustomer();
+            var result = customers.Where(x => x.name == name).ToList();
+
             return dCustomer.ListarCustomer();
         }
 

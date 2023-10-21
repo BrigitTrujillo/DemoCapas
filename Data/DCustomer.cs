@@ -8,13 +8,13 @@ namespace Data
 {
     public class DCustomer
     {
-        private string connection = "Data Source=DESKTOP-90DN5US\\SQLEXPRESS;Initial Catalog=FacturaDB;User ID=brigit;Password=123456";
+        private string connection = "Data Source=LAB1504-16\\SQLEXPRESS;Initial Catalog=FacturaDB;User ID=brigit;Password=123456";
 
         public void InsertarCustomer(Customer customer)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connection))
             {
-                sqlConnection.Open();
+               sqlConnection.Open();
                 SqlCommand command = new SqlCommand("SET IDENTITY_INSERT customers ON", sqlConnection);
                 command.ExecuteNonQuery();
 

@@ -21,12 +21,12 @@ namespace DemoCapas
 {
     public partial class MainWindow : Window
     {
-        BCustomer customerManager; // Necesitas tener una instancia de tu clase BCustomer
+        BCustomer customerManager; 
 
         public MainWindow()
         {
             InitializeComponent();
-            customerManager = new BCustomer(); // Inicializa la instancia de BCustomer en el constructor
+            customerManager = new BCustomer(); 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,15 +41,15 @@ namespace DemoCapas
             };
 
             customerManager.InsertarCustomer(customer);
-            // Llama al método InsertarCustomer de la capa de negocio
+            
 
         }
 
         
-            private void ListarCustomer_Click(object sender, RoutedEventArgs e)
+          private void ListarCustomer_Click(object sender, RoutedEventArgs e)
             {
-                ListarCustomer listarCustomerWindow = new ListarCustomer();
-                listarCustomerWindow.ShowDialog(); // Utiliza ShowDialog en lugar de Show
+                ListarCustomer listarCustomer = new ListarCustomer();
+               //customerManager.ListarCustomer();
             }
 
         
