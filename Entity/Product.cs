@@ -8,7 +8,7 @@ namespace Entity
 {
     public class Product
     {
-        public int Id { get; set; }
+        public int product_id { get; set; }
         public string name { get; set; }
         public decimal price { get; set; }
         public int stock { get; set; }

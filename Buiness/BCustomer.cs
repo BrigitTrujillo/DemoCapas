@@ -24,10 +24,11 @@ namespace Buiness
         public List<Customer>ListarCustomer(string name)
         {
             var customers = dCustomer.ListarCustomer();
-            var result = customers.Where(x => x.name == name).ToList();
+            var result = customers.Where(x => x.name.Contains( name)).ToList();
 
-            return dCustomer.ListarCustomer();
+            return result;
         }
 
     }
 }
+ 

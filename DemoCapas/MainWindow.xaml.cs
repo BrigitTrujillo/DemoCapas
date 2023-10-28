@@ -50,6 +50,7 @@ namespace DemoCapas
             {
                 ListarCustomer listarCustomer = new ListarCustomer();
                //customerManager.ListarCustomer();
+               
             }
 
         

@@ -8,7 +8,7 @@ namespace Data
 {
     public class DCustomer
     {
-        private string connection = "Data Source=LAB1504-16\\SQLEXPRESS;Initial Catalog=FacturaDB;User ID=brigit;Password=123456";
+        private string connection = "Data Source=LAB1504-06\\SQLEXPRESS;Initial Catalog=FacturaDB;User ID=brigit;Password=123456";
 
         public void InsertarCustomer(Customer customer)
         {
