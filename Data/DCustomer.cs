@@ -8,35 +8,13 @@ namespace Data
 {
     public class DCustomer
     {
-        private string connection = "Data Source=LAB1504-06\\SQLEXPRESS;Initial Catalog=FacturaDB;User ID=brigit;Password=123456";
 
-        public void InsertarCustomer(Customer customer)
-        {
-            using (SqlConnection sqlConnection = new SqlConnection(connection))
-            {
-               sqlConnection.Open();
-                SqlCommand command = new SqlCommand("SET IDENTITY_INSERT customers ON", sqlConnection);
-                command.ExecuteNonQuery();
-
-                command = new SqlCommand("InsertarCustomers", sqlConnection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@customer_id", customer.customer_id);
-                command.Parameters.AddWithValue("@name", customer.name);
-                command.Parameters.AddWithValue("@address", customer.address);
-                command.Parameters.AddWithValue("@phone", customer.phone);
-                command.Parameters.AddWithValue("@active", customer.active);
-
-                command.ExecuteNonQuery();
-
-                command = new SqlCommand("SET IDENTITY_INSERT customers OFF", sqlConnection);
-                command.ExecuteNonQuery();
-            }
-        }
+        public static string connectionString ="Data Source=DESKTOP-90DN5US\\SQLEXPRESS;Initial Catalog=FacturaDB;User ID=brigit;Password=123456";
 
         public List<Customer> ListarCustomer()
         {
             List<Customer> result = new List<Customer>();
-            using (SqlConnection sqlConnection = new SqlConnection(connection))
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand("ListarCustomer", sqlConnection))
                 {
@@ -59,5 +37,64 @@ namespace Data
             }
             return result;
         }
+
+        public void UpdateCustomer(Customer customer)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand command = new SqlCommand("UpdateCustomer", sqlConnection)) // "ActualizarCustomer" é o nome do seu procedimento armazenado
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@customer_id", customer.customer_id);
+                    command.Parameters.AddWithValue("@name", customer.name);
+                    command.Parameters.AddWithValue("@address", customer.address);
+                    command.Parameters.AddWithValue("@phone", customer.phone);
+                    command.Parameters.AddWithValue("@active", customer.active);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void CreateCustomer(Customer customer)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("CreateCustomer", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@customer_id", customer.customer_id);
+                    command.Parameters.AddWithValue("@name", customer.name);
+                    command.Parameters.AddWithValue("@address", customer.address);
+                    command.Parameters.AddWithValue("@phone", customer.phone);
+                    command.Parameters.AddWithValue("@active", customer.active);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
+        public void DeleteCustomer(int customerId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("DeleteCustomer", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@customer_id", customerId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+
+
     }
 }
